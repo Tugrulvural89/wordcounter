@@ -1,0 +1,222 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load django_bootstrap5 %}
+
+
+{% block title %}  <title>CounterWizard | Advanced Text Analysis & Counting Tools</title> {% endblock title %}
+{% block meta_title %}  <meta name="title" content="Explore Top Text Tools - Count Words & Analyze Easily | CounterWizard"> {% endblock meta_title %}
+ {% block meta_description %}  <meta name="description" content="Boost your content with CounterWizard.com's
+ powerful text analysis tools. Effortlessly count words, characters, and improve readability for better
+ engagement and clarity."> {% endblock meta_description %}
+
+
+
+{% block content %}
+
+    <style>
+
+    ul {
+  list-style-type: none; /* Listeden noktaları kaldırır */
+}
+
+ol {
+  list-style-type: none; /* Listeden numaraları kaldırır */
+}
+#loader {
+    display: none;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    width: 300px;
+    height: 300px;
+    background-image: url({% static 'loader.gif' %});
+    background-size: cover;
+    transform: translate(-50%, -50%);
+  }
+
+
+        #text-area {
+            width: 100%;
+            height: 150px;
+            margin-bottom: 20px;
+            padding: 10px;
+        }
+
+        #results {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        #readability {
+            margin-top: 10px;
+        }
+    </style>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<div class="container py-5">
+    <div class="card shadow-lg" style="background-color: #f8f9fa; border-radius: 15px;">
+        <div class="card-body">
+            <h1 class="text-center card-title">Welcome to CounterWizard – Master Your Text!</h1>
+            <p class="text-center text-muted">Real-Time Content Optimization Tips, Comprehensive Word Counting Tools, Detailed Text and Readability Analysis</p>
+
+            <div class="text-center mb-3">
+                <textarea id="text-area" class="form-control" placeholder="Type your text here..." style="height: 150px; border-radius: 10px;"></textarea>
+            </div>
+
+            <div class="d-flex justify-content-around text-center mb-2">
+                <div class="p-2">
+                    <h4 class="fw-bold">Words</h4>
+                    <p id="word-count">0</p>
+                </div>
+                <div class="p-2">
+                    <h4 class="fw-bold">Characters</h4>
+                    <p id="char-count">0</p>
+                </div>
+            </div>
+
+
+            <div class="d-flex justify-content-around text-center mb-2">
+                <div class="p-2">
+                    <i id="readability-icon" class="fa fa-lightbulb text-danger"></i>
+                    <h4 class="fw-bold">Readability Index</h4>
+                    <p id="readability">N/A</p>
+                </div>
+                <div class="p-2">
+                    <i id="instagram-icon" class="fa fa-lightbulb text-danger"></i>
+                    <h4 class="fw-bold">Instagram Post</h4>
+                    <p id="instagram-length">2200 / 2200</p>
+                </div>
+                <div class="p-2">
+                    <i id="google-ads-icon" class="fa fa-lightbulb text-danger"></i>
+                    <h4 class="fw-bold">Google Ads</h4>
+                    <p id="google-ads-length">90 / 90</p>
+                </div>
+                <div class="p-2">
+                    <i id="twitter-icon" class="fa fa-lightbulb text-danger"></i>
+                    <h4 class="fw-bold">Twitter Tweet</h4>
+                    <p id="twitter-length">280 / 280</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+     <div class="container">
+    <div class="row mb-4 mt-4">
+        <div class="col text-center">
+            <h1 class="h2">Why Should You Use a Word and Character Counter? Discover the Benefits Today!</h1>
+        </div>
+    </div>
+    <!-- Metin ve Görsel İçeren Flex Container -->
+    <div class="row mb-4 mt-4">
+        <div class="col-md-6  align-items-center">
+
+        <h2 class="h3 mb-3">Introduction</h2>
+        <p>Have you ever wondered why precise word counts are so crucial in digital content creation? Whether you are crafting an academic paper, preparing a marketing pitch, or simply writing a blog post, the number of words and characters can greatly influence the impact of your message. But how can a word and character counter make your writing process smoother and more effective?</p>
+
+        <h2 class="h3 mb-3">What Is a Word and Character Counter?</h2>
+        <p>Do you know exactly what a word and character counter tool does? Essentially, it's a digital tool designed to instantly calculate the length of your text. But isn't it more than just about counting words and characters? Absolutely! A sophisticated tool like CounterWizard not only measures your text's length but also helps ensure that your content fits perfectly within specific format requirements.</p>
+
+        <h2 class="h3 mb-3">Why Count Words and Characters?</h2>
+        <p>Why should you care about the number of words and characters in your text? Did you know that most publishing platforms and academic guidelines have strict limits on text length? Whether it’s adhering to SEO title and meta description standards, keeping within a certain word count for a blog or article, or ensuring your tweet is short enough to post, knowing your numbers is crucial. Can you see how a counter could be an invaluable asset in these scenarios?</p>
+
+        <h2 class="h3 mb-3">How Can a Word and Character Counter Improve Your Writing?</h2>
+        <p>Have you considered the ways a word and character counter can enhance your writing quality? By providing immediate feedback on your text’s length, can it help you become more concise and to the point? Could this tool help streamline your editing process by highlighting redundancy and verbosity in your content?</p>
+
+        <h2 class="h3 mb-3">What Features Should You Look for in a Word and Character Counter?</h2>
+        <p>What makes a word and character counter tool truly valuable? Is it enough for the tool to just count words and characters, or should it offer more? What if it could analyze readability, check for keyword density, and even suggest improvements? Wouldn't that transform a simple counter into a comprehensive writing aid?</p>
+
+        <h2 class="h3 mb-3">Conclusion</h2>
+        <p>Why settle for less when you can optimize your writing with CounterWizard.com? Now that you understand the importance of every word and character in your content, isn't it time to use a tool that offers you more than just basic counts? Why not visit CounterWizard.com today and experience the power of efficient writing?</p>
+
+        <h2 class="h3 mb-3">Call to Action</h2>
+        <p>Curious to see how much difference a word and character counter can make in your writing? Why not try CounterWizard.com for free today and start enhancing your content immediately? Isn't it time your words truly counted?</p>
+
+        </div>
+        <div class="col-md-6 d-flex justify-content-center">
+            <img src="{% static '1.png' %}" alt="image reducer free online" class="img-fluid">
+        </div>
+    </div>
+    <div class="row mb-4">
+        <div class="col text-center">
+            <h1 class="h2">Unlock the Power of Text Analysis for Clearer Communication</h1>
+        </div>
+    </div>
+    <!-- Metin ve Görsel İçeren Flex Container -->
+    <div class="row">
+        <div class="col-md-6 d-flex justify-content-center">
+            <img src="{% static '2.png' %}" alt="ad copy generator free" class="img-fluid blog-img">
+        </div>
+        <div class="col-md-6  align-items-center">
+        <h2 class="h3 mb-3">Introduction</h2>
+        <p>Ever wondered how some writers manage to capture their audience's attention effortlessly? It isn't just talent; it's also about using the right tools. Discover how text analysis tools can transform your writing and communication.</p>
+
+        <h2 class="h3 mb-3">What is Text Analysis?</h2>
+        <p>Text analysis is more than just counting words or characters. It involves examining the structure, readability, and style of your text. By analyzing these elements, a text analysis tool like CounterWizard can help ensure your writing is clear, engaging, and effective.</p>
+
+        <h2 class="h3 mb-3">Why is Text Analysis Important?</h2>
+        <p>Clear communication is crucial, whether you're writing a blog, a research paper, or marketing material. Text analysis helps by identifying overused words, unclear sentences, and passive voice usage. How could better analysis improve your writing effectiveness?</p>
+
+        <h2 class="h3 mb-3">How Can Text Analysis Tools Improve Your Writing?</h2>
+        <p>Imagine having a tool that not only counts your words but also provides feedback on sentence length, readability scores, and keyword density. Wouldn't it be helpful to have such insights to refine your drafts before they reach your audience?</p>
+
+        <h2 class="h3 mb-3">What Features Do Effective Text Analysis Tools Offer?</h2>
+        <p>Effective text analysis tools go beyond basic metrics. They should offer features like readability analysis, style suggestions, grammar checking, and even tone analysis. Isn't it crucial for your tool to provide these comprehensive insights?</p>
+
+        <h2 class="h3 mb-3">Conclusion</h2>
+        <p>Why not leverage the full potential of your written content with CounterWizard's advanced text analysis tools? Understanding the depth of your text's quality can dramatically enhance your communication and ensure your audience remains engaged.</p>
+
+        <h2 class="h3 mb-3">Call to Action</h2>
+        <p>Are you ready to take your writing to the next level? Explore CounterWizard.com today and see how our text analysis tools can help you craft perfect messages every time. Why wait to make your words work wonders?</p>
+
+        </div>
+
+
+    </div>
+</div>
+{% endblock content %}
+
+{% block javascript %}
+<script>
+document.getElementById('text-area').addEventListener('input', function() {
+    const text = this.value;
+    const chars = text.length;
+    const words = text.match(/\b[-?(\w+)?]+\b/gi);
+    const sentences = text.split(/[\.\?!]+/).filter(Boolean);
+    const syllables = text.toLowerCase().split(" ").reduce((acc, word) => acc + countSyllables(word), 0);
+
+    // Platform limits
+    const instagramLimit = 2200;
+    const googleAdsLimit = 90;
+    const twitterLimit = 280;
+
+
+            document.getElementById('word-count').textContent = words ? words.length : 0;
+        document.getElementById('char-count').textContent = chars;
+
+    // Readability calculation
+    const readabilityScore = words && sentences.length > 0 ? (206.835 - 1.015 * (words.length / sentences.length) - 84.6 * (syllables / words.length)).toFixed(2) : 'N/A';
+    document.getElementById('readability').textContent = readabilityScore;
+    document.getElementById('readability-icon').className = readabilityScore >= 85 ? 'fa fa-lightbulb text-success' : 'fa fa-lightbulb text-danger';
+
+    // Update lengths and icons
+    updatePlatform('instagram-length', 'instagram-icon', instagramLimit, chars);
+    updatePlatform('google-ads-length', 'google-ads-icon', googleAdsLimit, chars);
+    updatePlatform('twitter-length', 'twitter-icon', twitterLimit, chars);
+});
+
+function updatePlatform(id, iconId, limit, chars) {
+    const remaining = limit - chars;
+    const percentFilled = chars / limit;
+    document.getElementById(id).textContent = `${remaining} / ${limit}`;
+    document.getElementById(iconId).className = percentFilled >= 0.95 ? 'fa fa-lightbulb text-success' : 'fa fa-lightbulb text-danger';
+}
+
+function countSyllables(word) {
+    word = word.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/, '').replace(/^y/, '');
+    return word.match(/[aeiouy]{1,2}/g) ? word.match(/[aeiouy]{1,2}/g).length : 1;
+}
+</script>
+{% endblock javascript %}
